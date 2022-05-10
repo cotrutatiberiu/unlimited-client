@@ -1,13 +1,13 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import useLanguage from '@/hooks/useLanguage';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from '@/components/navbar/Navbar';
 
 function HomePage() {
-  const dicti = useLanguage();
-  console.log(dicti);
   return (
     <div>
-      <Button>test</Button>
+      <Navbar />
+      <Button variant="primary">test</Button>
       <div>Welcome to Nextsss.jas!</div>
     </div>
   );

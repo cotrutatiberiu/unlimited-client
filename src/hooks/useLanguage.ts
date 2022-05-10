@@ -1,16 +1,14 @@
 /* eslint-disable global-require */
 // import { ILanguageTemplate } from '@/interfaces/ILanguageTemplate';
+import { languageController } from "@/utils/language/languageController";
+import { useEffect, useState } from "react";
 
-const useLanguage = () => {
-  // const language = 'en';
-  const languages = ['en'];
-  const dictionary = {};
+const useLanguage = (language = "en") => {
+  const [languageConstants, setLanguageConstants] = useState(() =>
+    setLanguageConstants(languageController.getInstance()[language])
+  );
 
-  languages.forEach((language: string) => {
-    dictionary[language] = require('/src/utils/language/languages/en.ts');
-  });
-
-  return dictionary;
+  return languageConstants;
 };
 
 export default useLanguage;

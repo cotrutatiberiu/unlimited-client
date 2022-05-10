@@ -1,11 +1,23 @@
-import { ILanguageTemplate } from '@/interfaces/ILanguageTemplate';
+export const languageController = (function () {
+  let instance;
 
-const languages = ['en'];
-const languageGlossaries: any = {};
+  function createInstance() {
+    const languages = ['en'];
+    const dictionary = {};
 
+    languages.forEach((language: string) => {
+      dictionary[language] = require('/src/utils/language/languages/en.ts');
+    });
 
-// export const InitializeLanguages = () => {
-//   languages.forEach((language: string) => {
-//     languageGlossaries[language] = require(`src/utils/language/languages/${language}`)
-//   })
-// }
+    return dictionary;
+  }
+
+  return {
+    getInstance: function () {
+      if (!instance) {
+        instance = createInstance();
+      }
+      return instance;
+    }
+  };
+})();

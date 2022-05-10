@@ -1,6 +1,8 @@
 interface ILanguageTemplate {
+  LOGIN: string;
+  REGISTER: string;
   SIGNUP: {
-    FIRSTNAME: string
+    FIRSTNAME: string;
     LASTNAME: string;
     EMAIL: string;
     COUNTRY: string;
